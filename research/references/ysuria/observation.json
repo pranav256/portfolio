@@ -1,0 +1,18 @@
+{
+  "slug": "ysuria",
+  "url": "https://ysuriadesign.co/",
+  "attemptedAt": "2026-11-05T13:48:31.908Z",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "status": "unavailable",
+  "screenshots": [
+    "unavailable-desktop.jpg"
+  ],
+  "errors": [
+    "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText(/^(enter muted|skip)$/i).first()\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"enter-btn\" data-enter=\"mute\">Enter muted</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n"
+  ],
+  "httpStatus": 200,
+  "entryAction": "Enter muted"
+}

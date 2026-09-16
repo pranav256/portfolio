@@ -18,6 +18,8 @@ const sites = [
   ['awwwards-portfolios', 'https://www.awwwards.com/websites/portfolio/'],
 ];
 const viewport = { width: 1440, height: 1000 };
+const requested = process.argv.slice(2);
+const selectedSites = requested.length ? sites.filter(([slug]) => requested.includes(slug)) : sites;
 
 await mkdir(root, { recursive: true });
 let browser;
@@ -42,6 +44,8 @@ try {
 }
 
 const context = await browser.newContext({ viewport, deviceScaleFactor: 1 });
+context.setDefaultTimeout(12000);
+context.setDefaultNavigationTimeout(25000);
 const results = [];
 async function study([slug, url]) {
   const page = await context.newPage();
@@ -52,10 +56,17 @@ async function study([slug, url]) {
     const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 25000 });
     record.httpStatus = response?.status();
     await page.waitForTimeout(3000);
+    const entry = page.getByText(/^(enter muted|skip)$/i).first();
+    if (await entry.isVisible().catch(() => false)) {
+      record.entryAction = await entry.innerText();
+      await entry.click();
+      await page.waitForTimeout(2000);
+    }
+    if (slug === 'daiki-fujita') await page.waitForTimeout(8000);
     record.title = await page.title();
     record.status = /just a moment|access denied|checking your browser|security verification/i.test(record.title)
       ? 'challenge' : response?.ok() ? 'loaded' : 'http-error';
-    await page.screenshot({ path: path.join(folder, 'desktop.jpg'), type: 'jpeg', quality: 85 });
+    await page.screenshot({ path: path.join(folder, 'desktop.jpg'), type: 'jpeg', quality: 85, timeout: 12000 });
     record.screenshots.push('desktop.jpg');
     record.styles = await page.evaluate(() => {
       const pick = (element) => {
@@ -69,8 +80,14 @@ async function study([slug, url]) {
       return { body: pick(document.body), headings: [...document.querySelectorAll('h1,h2,h3')].slice(0, 10).map(pick),
         links: [...document.querySelectorAll('a,button')].slice(0, 8).map(pick),
         palette: [...new Set(palette)], canvasCount: document.querySelectorAll('canvas').length,
-        svgCount: document.querySelectorAll('svg').length, height: document.documentElement.scrollHeight };
+        svgCount: document.querySelectorAll('svg').length, height: document.documentElement.scrollHeight,
+        visibleText: document.body.innerText.slice(0, 8000),
+        cursorElements: [...document.querySelectorAll('[class*="cursor"], [id*="cursor"]')].slice(0, 10).map(pick),
+        transitions: [...document.querySelectorAll('main *, section *, [class*="reveal"]')].slice(0, 1500)
+          .filter(el => { const s = getComputedStyle(el); return s.transitionDuration !== '0s' || s.animationName !== 'none'; })
+          .slice(0, 24).map(pick) };
     });
+    if (/this site needs webgpu|your browser.*not support/i.test(record.styles.visibleText)) record.status = 'browser-feature-fallback';
     const height = record.styles.height;
     for (let y = 650; y < Math.min(height, 20000); y += 650) {
       await page.evaluate(y => window.scrollTo(0, y), y);
@@ -99,6 +116,7 @@ async function study([slug, url]) {
     }
   } catch (error) {
     record.errors.push(error.message);
+    if (record.status === 'loaded') record.status = 'partial';
     await page.screenshot({ path: path.join(folder, 'unavailable-desktop.jpg'), type: 'jpeg', quality: 65 })
       .then(() => record.screenshots.push('unavailable-desktop.jpg')).catch(() => {});
   }
@@ -107,7 +125,13 @@ async function study([slug, url]) {
   console.log(`${slug}: ${record.status}`);
   await page.close();
 }
-for (let i = 0; i < sites.length; i += 3) await Promise.all(sites.slice(i, i + 3).map(study));
-await writeFile(path.join(root, 'manifest.json'), JSON.stringify({ browser: await browser.version(), capturedAt: new Date().toISOString(), results }, null, 2) + '\n');
+for (let i = 0; i < selectedSites.length; i += 2) await Promise.all(selectedSites.slice(i, i + 2).map(study));
+const allResults = [];
+for (const [slug] of sites) {
+  const { readFile } = await import('node:fs/promises');
+  try { allResults.push(JSON.parse(await readFile(path.join(root, slug, 'observation.json'), 'utf8'))); }
+  catch { allResults.push({ slug, status: 'not-opened', screenshots: [] }); }
+}
+await writeFile(path.join(root, 'manifest.json'), JSON.stringify({ browser: await browser.version(), capturedAt: new Date().toISOString(), results: allResults }, null, 2) + '\n');
 await browser.close();
 if (results.some(result => result.status !== 'loaded')) process.exitCode = 1;
