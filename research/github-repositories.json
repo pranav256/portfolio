@@ -1,0 +1,1183 @@
+[
+    {
+        "name":  ".github",
+        "full_name":  "pranav256/.github",
+        "description":  "GitHub Configuration Repository",
+        "html_url":  "https://github.com/pranav256/.github",
+        "homepage":  "",
+        "language":  null,
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2022-07-04T13:26:45Z",
+        "pushed_at":  "2026-11-01T09:14:20Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "afero",
+        "full_name":  "pranav256/afero",
+        "description":  "The Universal Filesystem Abstraction for Go",
+        "html_url":  "https://github.com/pranav256/afero",
+        "homepage":  "",
+        "language":  "Go",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-05T08:38:16Z",
+        "pushed_at":  "2026-11-01T09:10:34Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Atlas",
+        "full_name":  "pranav256/Atlas",
+        "description":  "An open source modification of the Windows 10 operating system, designed to optimize performance, and latency.",
+        "html_url":  "https://github.com/pranav256/Atlas",
+        "homepage":  "https://atlasos.net",
+        "language":  "Batchfile",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2022-07-10T08:31:03Z",
+        "pushed_at":  "2026-11-01T09:14:14Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "autoMate",
+        "full_name":  "pranav256/autoMate",
+        "description":  "Like Manus, Computer Use Agent(CUA) and Omniparser, we are computer-using agents.AI-driven local automation assistant that uses natural language to make computers work by themselves",
+        "html_url":  "https://github.com/pranav256/autoMate",
+        "homepage":  "",
+        "language":  "Python",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2025-07-20T11:12:34Z",
+        "pushed_at":  "2026-11-01T09:14:04Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "avdanos-compositor",
+        "full_name":  "pranav256/avdanos-compositor",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/avdanos-compositor",
+        "homepage":  null,
+        "language":  "Rust",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2022-07-28T13:18:03Z",
+        "pushed_at":  "2026-11-01T09:13:56Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "avdanos-demo",
+        "full_name":  "pranav256/avdanos-demo",
+        "description":  "The Offical AvdanOS demo",
+        "html_url":  "https://github.com/pranav256/avdanos-demo",
+        "homepage":  null,
+        "language":  "TypeScript",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2022-08-05T15:36:20Z",
+        "pushed_at":  "2026-11-01T09:13:49Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "avdanos-tinan-bot",
+        "full_name":  "pranav256/avdanos-tinan-bot",
+        "description":  "The Discord Bot for the AvdanOS Community Discord server.",
+        "html_url":  "https://github.com/pranav256/avdanos-tinan-bot",
+        "homepage":  null,
+        "language":  "JavaScript",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2022-07-04T13:27:01Z",
+        "pushed_at":  "2026-11-01T09:13:41Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "avdanos-website",
+        "full_name":  "pranav256/avdanos-website",
+        "description":  "The main website for avdanos.com",
+        "html_url":  "https://github.com/pranav256/avdanos-website",
+        "homepage":  "https://avdanos.com",
+        "language":  "TypeScript",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2022-07-14T12:20:58Z",
+        "pushed_at":  "2026-11-04T05:32:34Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Bella",
+        "full_name":  "pranav256/Bella",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/Bella",
+        "homepage":  null,
+        "language":  "JavaScript",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2025-07-20T08:56:58Z",
+        "pushed_at":  "2026-11-01T09:13:33Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "better-auth",
+        "full_name":  "pranav256/better-auth",
+        "description":  "The most comprehensive authentication framework",
+        "html_url":  "https://github.com/pranav256/better-auth",
+        "homepage":  "https://better-auth.com",
+        "language":  null,
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-27T11:45:10Z",
+        "pushed_at":  "2026-11-01T09:28:13Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "block-ai-slop",
+        "full_name":  "pranav256/block-ai-slop",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/block-ai-slop",
+        "homepage":  null,
+        "language":  "JavaScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2026-11-02T07:09:28Z",
+        "pushed_at":  "2026-11-04T14:25:56Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "blog",
+        "full_name":  "pranav256/blog",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/blog",
+        "homepage":  "blog-iota-flame.vercel.app",
+        "language":  "TypeScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-05-28T15:44:31Z",
+        "pushed_at":  "2026-11-01T09:37:33Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "calculator",
+        "full_name":  "pranav256/calculator",
+        "description":  "Calculator using vanilla js design from frontend mentor ",
+        "html_url":  "https://github.com/pranav256/calculator",
+        "homepage":  "https://calc06.vercel.app/",
+        "language":  "HTML",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-10-14T01:22:49Z",
+        "pushed_at":  "2026-11-01T09:37:36Z",
+        "topics":  [
+                       "css",
+                       "html",
+                       "javascript"
+                   ]
+    },
+    {
+        "name":  "Calculator-for-android",
+        "full_name":  "pranav256/Calculator-for-android",
+        "description":  "A simple Calculator made using java for android",
+        "html_url":  "https://github.com/pranav256/Calculator-for-android",
+        "homepage":  null,
+        "language":  "Java",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-02T05:52:24Z",
+        "pushed_at":  "2026-10-29T06:13:03Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Calculator-Python",
+        "full_name":  "pranav256/Calculator-Python",
+        "description":  "Calculator-Python Using Both Python PYQT5 And Tkinter Module",
+        "html_url":  "https://github.com/pranav256/Calculator-Python",
+        "homepage":  "",
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-08-31T11:26:24Z",
+        "pushed_at":  "2026-10-29T06:13:06Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Car-and-Pedestrian-Detector",
+        "full_name":  "pranav256/Car-and-Pedestrian-Detector",
+        "description":  "Car and Pedestrian Detector Using haarcascade and open-cv",
+        "html_url":  "https://github.com/pranav256/Car-and-Pedestrian-Detector",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-01T06:57:43Z",
+        "pushed_at":  "2026-10-29T06:13:09Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "ChromiumPywal",
+        "full_name":  "pranav256/ChromiumPywal",
+        "description":  "ðŸ¤– Generates color theme for chromium by using pywal colors",
+        "html_url":  "https://github.com/pranav256/ChromiumPywal",
+        "homepage":  "",
+        "language":  null,
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2022-07-13T16:33:53Z",
+        "pushed_at":  "2026-10-29T06:13:19Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "clock",
+        "full_name":  "pranav256/clock",
+        "description":  "Clock App using vanilla js ",
+        "html_url":  "https://github.com/pranav256/clock",
+        "homepage":  "https://clock06.vercel.app/",
+        "language":  "CSS",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-09-23T15:44:33Z",
+        "pushed_at":  "2026-11-01T09:37:45Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "config",
+        "full_name":  "pranav256/config",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/config",
+        "homepage":  null,
+        "language":  "Shell",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-04-05T12:25:11Z",
+        "pushed_at":  "2026-10-29T06:13:30Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Dice-Simulator",
+        "full_name":  "pranav256/Dice-Simulator",
+        "description":  "Simple Dice Simulator using python PYQT5",
+        "html_url":  "https://github.com/pranav256/Dice-Simulator",
+        "homepage":  "",
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-08-31T13:27:36Z",
+        "pushed_at":  "2026-10-29T06:13:36Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Face-Detector",
+        "full_name":  "pranav256/Face-Detector",
+        "description":  "Face Detector Using Open-cv",
+        "html_url":  "https://github.com/pranav256/Face-Detector",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-01T07:00:25Z",
+        "pushed_at":  "2026-10-29T06:13:40Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Flappy-Game",
+        "full_name":  "pranav256/Flappy-Game",
+        "description":  "Flappy-Game Using Pygame",
+        "html_url":  "https://github.com/pranav256/Flappy-Game",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-01T06:48:58Z",
+        "pushed_at":  "2026-10-29T06:13:44Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "github-user-finder",
+        "full_name":  "pranav256/github-user-finder",
+        "description":  "Github User Finder",
+        "html_url":  "https://github.com/pranav256/github-user-finder",
+        "homepage":  "https://github-user-finder06.vercel.app/",
+        "language":  "JavaScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-10-31T14:08:14Z",
+        "pushed_at":  "2026-11-01T09:38:01Z",
+        "topics":  [
+                       "react",
+                       "tailwind",
+                       "vite"
+                   ]
+    },
+    {
+        "name":  "github-user-finder-react",
+        "full_name":  "pranav256/github-user-finder-react",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/github-user-finder-react",
+        "homepage":  "https://github-user-finder06.vercel.app/",
+        "language":  "TypeScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-04-25T12:54:39Z",
+        "pushed_at":  "2026-11-01T09:38:06Z",
+        "topics":  [
+                       "reactjs",
+                       "tailwindcss",
+                       "vite"
+                   ]
+    },
+    {
+        "name":  "go-sqlite3",
+        "full_name":  "pranav256/go-sqlite3",
+        "description":  "sqlite3 driver for go using database/sql",
+        "html_url":  "https://github.com/pranav256/go-sqlite3",
+        "homepage":  "http://mattn.github.io/go-sqlite3",
+        "language":  "C",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-05T10:08:29Z",
+        "pushed_at":  "2026-11-01T09:12:50Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "gocron",
+        "full_name":  "pranav256/gocron",
+        "description":  "Easy and fluent Go cron scheduling. This is a fork from https://github.com/jasonlvhit/gocron",
+        "html_url":  "https://github.com/pranav256/gocron",
+        "homepage":  "",
+        "language":  "Go",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-05T21:15:33Z",
+        "pushed_at":  "2026-11-01T09:13:00Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "hidden-ai",
+        "full_name":  "pranav256/hidden-ai",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/hidden-ai",
+        "homepage":  "hidden-ai.vercel.app",
+        "language":  "JavaScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-12-24T14:35:10Z",
+        "pushed_at":  "2026-09-27T15:22:31Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Hooky",
+        "full_name":  "pranav256/Hooky",
+        "description":  "Autonomous AI video clipper \u0026 open-source Opus Clip alternative. Turns long YouTube videos \u0026 podcasts into viral 9:16 Shorts, Reels, and TikToks with Gemini AI highlight detection, animated Hormozi captions, and automated publishing.",
+        "html_url":  "https://github.com/pranav256/Hooky",
+        "homepage":  "https://hoooky.vercel.app",
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2026-10-04T05:21:37Z",
+        "pushed_at":  "2026-11-04T11:59:03Z",
+        "topics":  [
+                       "ai-video-editing",
+                       "auto-clipper",
+                       "automation",
+                       "faceless-video",
+                       "faster-whisper",
+                       "ffmpeg",
+                       "gemini-api",
+                       "opus-clip-alternative",
+                       "python",
+                       "shorts-generator",
+                       "video-clipper",
+                       "yt-dlp"
+                   ]
+    },
+    {
+        "name":  "hooky-website",
+        "full_name":  "pranav256/hooky-website",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/hooky-website",
+        "homepage":  "https://hoooky.vercel.app",
+        "language":  "TypeScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2026-10-30T05:38:25Z",
+        "pushed_at":  "2026-11-01T09:04:43Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Image-Downloader",
+        "full_name":  "pranav256/Image-Downloader",
+        "description":  "Image Downloader using python modules PYQT5 Tkinter",
+        "html_url":  "https://github.com/pranav256/Image-Downloader",
+        "homepage":  "",
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-19T06:51:45Z",
+        "pushed_at":  "2026-09-27T15:22:42Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "JeeHub",
+        "full_name":  "pranav256/JeeHub",
+        "description":  "Solve Pyqs :)",
+        "html_url":  "https://github.com/pranav256/JeeHub",
+        "homepage":  "https://jeehub.vercel.app",
+        "language":  "TypeScript",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2024-02-18T05:46:21Z",
+        "pushed_at":  "2026-11-01T09:12:42Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Message-Bomber",
+        "full_name":  "pranav256/Message-Bomber",
+        "description":  "Message Bomber",
+        "html_url":  "https://github.com/pranav256/Message-Bomber",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-01T07:10:03Z",
+        "pushed_at":  "2026-09-27T15:23:03Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "movie-finder",
+        "full_name":  "pranav256/movie-finder",
+        "description":  "Movie-Finder App Made Using Vanilla JS API:tmbd ",
+        "html_url":  "https://github.com/pranav256/movie-finder",
+        "homepage":  "https://movie-finder06.netlify.app/",
+        "language":  "HTML",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-10-11T00:57:45Z",
+        "pushed_at":  "2026-11-01T09:38:14Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "movie-finder-react",
+        "full_name":  "pranav256/movie-finder-react",
+        "description":  "movie-finder made using reactjs and tmbd API",
+        "html_url":  "https://github.com/pranav256/movie-finder-react",
+        "homepage":  "https://movie-finder06.vercel.app/",
+        "language":  "JavaScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-04-23T07:16:40Z",
+        "pushed_at":  "2026-11-01T09:38:18Z",
+        "topics":  [
+                       "css",
+                       "movie-finder",
+                       "react",
+                       "vite"
+                   ]
+    },
+    {
+        "name":  "Music-Player",
+        "full_name":  "pranav256/Music-Player",
+        "description":  "Music-Player in both PyQt5 And Tkinter",
+        "html_url":  "https://github.com/pranav256/Music-Player",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-04T06:40:20Z",
+        "pushed_at":  "2026-09-27T15:23:22Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "news",
+        "full_name":  "pranav256/news",
+        "description":  "NEWS App Made Using Vanilla JS API:https://saurav.tech/NewsAPI ",
+        "html_url":  "https://github.com/pranav256/news",
+        "homepage":  "https://pranavpk404.github.io/news",
+        "language":  "CSS",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-10-08T04:47:26Z",
+        "pushed_at":  "2026-11-01T09:38:21Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "news-api",
+        "full_name":  "pranav256/news-api",
+        "description":  "Free, no-key global news JSON refreshed every 2h via GitHub Actions. Zero servers, open CORS.",
+        "html_url":  "https://github.com/pranav256/news-api",
+        "homepage":  "https://news-api-live.vercel.app/",
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-02-26T11:25:09Z",
+        "pushed_at":  "2026-11-05T00:32:38Z",
+        "topics":  [
+                       "news-aggregator"
+                   ]
+    },
+    {
+        "name":  "news-api-source",
+        "full_name":  "pranav256/news-api-source",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/news-api-source",
+        "homepage":  null,
+        "language":  null,
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-07-02T06:19:42Z",
+        "pushed_at":  "2022-07-02T06:19:43Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "news-api-web",
+        "full_name":  "pranav256/news-api-web",
+        "description":  "Editorial broadsheet live news reader and API documentation portal for news-api. Built with Next.js 14 and Unslop.",
+        "html_url":  "https://github.com/pranav256/news-api-web",
+        "homepage":  "https://news-api-live.vercel.app",
+        "language":  "HTML",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2026-11-01T09:28:23Z",
+        "pushed_at":  "2026-11-01T10:41:24Z",
+        "topics":  [
+                       "broadsheet",
+                       "editorial-ui",
+                       "news-api",
+                       "nextjs",
+                       "open-source",
+                       "react",
+                       "typescript",
+                       "unslop",
+                       "vercel"
+                   ]
+    },
+    {
+        "name":  "news-react",
+        "full_name":  "pranav256/news-react",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/news-react",
+        "homepage":  "https://24x7.vercel.app/",
+        "language":  "TypeScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-02-07T05:55:00Z",
+        "pushed_at":  "2026-11-01T09:38:23Z",
+        "topics":  [
+                       "react",
+                       "tailwindcss",
+                       "vitejs"
+                   ]
+    },
+    {
+        "name":  "nexphisher",
+        "full_name":  "pranav256/nexphisher",
+        "description":  "Advanced Phishing tool for Linux \u0026 Termux",
+        "html_url":  "https://github.com/pranav256/nexphisher",
+        "homepage":  "https://linktr.ee/htrtech",
+        "language":  "Shell",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2022-08-27T05:15:13Z",
+        "pushed_at":  "2026-10-29T07:35:57Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Notepad",
+        "full_name":  "pranav256/Notepad",
+        "description":  "A Notepad Using tkinter",
+        "html_url":  "https://github.com/pranav256/Notepad",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-01T06:19:14Z",
+        "pushed_at":  "2026-09-27T16:10:54Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "notes",
+        "full_name":  "pranav256/notes",
+        "description":  "Simple Notes App Vanilla JS ",
+        "html_url":  "https://github.com/pranav256/notes",
+        "homepage":  "https://notes06.vercel.app/",
+        "language":  "HTML",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-10-05T03:05:21Z",
+        "pushed_at":  "2026-11-01T09:38:29Z",
+        "topics":  [
+                       "css",
+                       "html",
+                       "javascript"
+                   ]
+    },
+    {
+        "name":  "number-guess-rust",
+        "full_name":  "pranav256/number-guess-rust",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/number-guess-rust",
+        "homepage":  null,
+        "language":  "Rust",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-07-25T00:06:12Z",
+        "pushed_at":  "2026-09-27T16:11:16Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "nvim",
+        "full_name":  "pranav256/nvim",
+        "description":  "A non-minimal Neovim config built to work most efficiently with Frontend Development - React \u0026 Vue.js",
+        "html_url":  "https://github.com/pranav256/nvim",
+        "homepage":  "",
+        "language":  "Lua",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2023-07-05T10:20:21Z",
+        "pushed_at":  "2026-11-01T09:12:35Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "oci-arm-retry",
+        "full_name":  "pranav256/oci-arm-retry",
+        "description":  "Automated retry scripts to claim Oracle Cloud Always Free VMs (ARM A1.Flex / x86 E2.1.Micro) via GitHub Actions",
+        "html_url":  "https://github.com/pranav256/oci-arm-retry",
+        "homepage":  "",
+        "language":  "Python",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-17T04:46:46Z",
+        "pushed_at":  "2026-10-29T06:35:52Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Octane-Browser",
+        "full_name":  "pranav256/Octane-Browser",
+        "description":  "A Simple Browser",
+        "html_url":  "https://github.com/pranav256/Octane-Browser",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-08T04:33:57Z",
+        "pushed_at":  "2026-10-29T06:35:55Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "openshorts",
+        "full_name":  "pranav256/openshorts",
+        "description":  "Open source AI clip generator: turns long videos into viral 9:16 shorts with AI moment detection, face tracking, subtitles and dubbing. Self-host free with Docker (MIT), or use the cloud with GPU speed from $12/mo. MCP server and API for AI agents.",
+        "html_url":  "https://github.com/pranav256/openshorts",
+        "homepage":  "https://www.openshorts.app/",
+        "language":  null,
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-09-28T12:06:08Z",
+        "pushed_at":  "2026-09-28T11:33:24Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Password-Manager",
+        "full_name":  "pranav256/Password-Manager",
+        "description":  "Modern, encrypted desktop password manager written in Rust with Argon2id, AES-256-GCM, and egui.",
+        "html_url":  "https://github.com/pranav256/Password-Manager",
+        "homepage":  null,
+        "language":  "Rust",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-06T08:23:19Z",
+        "pushed_at":  "2026-11-02T11:50:09Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "pendulum",
+        "full_name":  "pranav256/pendulum",
+        "description":  "Python datetimes made easy",
+        "html_url":  "https://github.com/pranav256/pendulum",
+        "homepage":  "https://pendulum.eustace.io",
+        "language":  "Python",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-05T21:52:58Z",
+        "pushed_at":  "2026-11-01T09:10:40Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "pranav256",
+        "full_name":  "pranav256/pranav256",
+        "description":  "readme file",
+        "html_url":  "https://github.com/pranav256/pranav256",
+        "homepage":  "",
+        "language":  null,
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-11-02T05:39:18Z",
+        "pushed_at":  "2026-11-05T07:42:07Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "project_3D_developer_portfolio",
+        "full_name":  "pranav256/project_3D_developer_portfolio",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/project_3D_developer_portfolio",
+        "homepage":  null,
+        "language":  "JavaScript",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2023-07-07T16:53:11Z",
+        "pushed_at":  "2026-11-01T09:12:23Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "pydantic",
+        "full_name":  "pranav256/pydantic",
+        "description":  "Data validation using Python type hints",
+        "html_url":  "https://github.com/pranav256/pydantic",
+        "homepage":  "https://pydantic.dev/docs/validation",
+        "language":  "Python",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-06T13:47:37Z",
+        "pushed_at":  "2026-11-01T09:12:17Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "radium",
+        "full_name":  "pranav256/radium",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/radium",
+        "homepage":  null,
+        "language":  "TypeScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-05-16T11:54:54Z",
+        "pushed_at":  "2026-11-01T09:47:02Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "radium-react",
+        "full_name":  "pranav256/radium-react",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/radium-react",
+        "homepage":  null,
+        "language":  "JavaScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-05-16T11:44:22Z",
+        "pushed_at":  "2026-11-01T09:47:05Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "reddit",
+        "full_name":  "pranav256/reddit",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/reddit",
+        "homepage":  null,
+        "language":  "CSS",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2023-05-17T14:45:10Z",
+        "pushed_at":  "2026-11-01T09:47:08Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "requests",
+        "full_name":  "pranav256/requests",
+        "description":  "A simple, yet elegant, HTTP library.",
+        "html_url":  "https://github.com/pranav256/requests",
+        "homepage":  "https://requests.readthedocs.io/en/latest/",
+        "language":  "Python",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-06T12:07:10Z",
+        "pushed_at":  "2026-11-01T09:12:00Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "rich",
+        "full_name":  "pranav256/rich",
+        "description":  "Rich is a Python library for rich text and beautiful formatting in the terminal.",
+        "html_url":  "https://github.com/pranav256/rich",
+        "homepage":  "https://rich.readthedocs.io/en/latest/",
+        "language":  null,
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-27T11:38:12Z",
+        "pushed_at":  "2026-10-27T11:48:41Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "rust-experiments",
+        "full_name":  "pranav256/rust-experiments",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/rust-experiments",
+        "homepage":  null,
+        "language":  "Rust",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2022-07-28T13:30:10Z",
+        "pushed_at":  "2026-11-01T09:11:45Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Slow-Mo",
+        "full_name":  "pranav256/Slow-Mo",
+        "description":  "View Video in Slow Motion Made Using opencv",
+        "html_url":  "https://github.com/pranav256/Slow-Mo",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-01T07:25:07Z",
+        "pushed_at":  "2026-10-29T06:45:08Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Space-Duel",
+        "full_name":  "pranav256/Space-Duel",
+        "description":  "2D Game Using Pygame",
+        "html_url":  "https://github.com/pranav256/Space-Duel",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-01T07:19:29Z",
+        "pushed_at":  "2026-10-29T06:45:12Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "sqlalchemy",
+        "full_name":  "pranav256/sqlalchemy",
+        "description":  "The Database Toolkit for Python",
+        "html_url":  "https://github.com/pranav256/sqlalchemy",
+        "homepage":  "https://www.sqlalchemy.org",
+        "language":  "Python",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-05T07:59:43Z",
+        "pushed_at":  "2026-11-01T09:11:38Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "sqlfluff",
+        "full_name":  "pranav256/sqlfluff",
+        "description":  "A modular SQL linter and auto-formatter with support for multiple dialects and templated code.",
+        "html_url":  "https://github.com/pranav256/sqlfluff",
+        "homepage":  "https://www.sqlfluff.com",
+        "language":  "Python",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-05T08:16:25Z",
+        "pushed_at":  "2026-11-01T09:11:15Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "test-api",
+        "full_name":  "pranav256/test-api",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/test-api",
+        "homepage":  null,
+        "language":  null,
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-09-09T03:35:48Z",
+        "pushed_at":  "2026-09-27T16:13:08Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "Text-to-Speech",
+        "full_name":  "pranav256/Text-to-Speech",
+        "description":  "Text to Speech Using gTTS",
+        "html_url":  "https://github.com/pranav256/Text-to-Speech",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-01T07:17:56Z",
+        "pushed_at":  "2026-10-29T06:47:32Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "text-utils-react",
+        "full_name":  "pranav256/text-utils-react",
+        "description":  "text-utils made using React",
+        "html_url":  "https://github.com/pranav256/text-utils-react",
+        "homepage":  "https://text-utils06.vercel.app/",
+        "language":  "TypeScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-12-10T09:45:34Z",
+        "pushed_at":  "2026-11-01T09:47:21Z",
+        "topics":  [
+                       "css",
+                       "react",
+                       "text-utility",
+                       "vite"
+                   ]
+    },
+    {
+        "name":  "Tic-Tac-Toe",
+        "full_name":  "pranav256/Tic-Tac-Toe",
+        "description":  "Tic Tac Toe made using java for android",
+        "html_url":  "https://github.com/pranav256/Tic-Tac-Toe",
+        "homepage":  null,
+        "language":  "Java",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-02T05:55:51Z",
+        "pushed_at":  "2026-10-29T06:47:37Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "todo",
+        "full_name":  "pranav256/todo",
+        "description":  "TODO App Made Using Vanilla JS  ",
+        "html_url":  "https://github.com/pranav256/todo",
+        "homepage":  "https://todo06.vercel.app/",
+        "language":  "JavaScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-09-28T18:21:36Z",
+        "pushed_at":  "2026-11-01T09:47:24Z",
+        "topics":  [
+                       "css",
+                       "html",
+                       "javascript",
+                       "todo"
+                   ]
+    },
+    {
+        "name":  "TODO-Manager",
+        "full_name":  "pranav256/TODO-Manager",
+        "description":  "A simple TODO Program",
+        "html_url":  "https://github.com/pranav256/TODO-Manager",
+        "homepage":  null,
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-06-03T06:43:35Z",
+        "pushed_at":  "2026-10-29T06:47:41Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "ts-morph",
+        "full_name":  "pranav256/ts-morph",
+        "description":  "TypeScript Compiler API wrapper for static analysis and programmatic code changes.",
+        "html_url":  "https://github.com/pranav256/ts-morph",
+        "homepage":  "https://ts-morph.com",
+        "language":  "TypeScript",
+        "fork":  true,
+        "archived":  false,
+        "created_at":  "2026-10-05T21:35:25Z",
+        "pushed_at":  "2026-11-01T09:10:47Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "URL-Shortner",
+        "full_name":  "pranav256/URL-Shortner",
+        "description":  "Simple URL Shortner Vanilla JS",
+        "html_url":  "https://github.com/pranav256/URL-Shortner",
+        "homepage":  "https://url-shortner06.netlify.app/",
+        "language":  "CSS",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-11-03T06:04:15Z",
+        "pushed_at":  "2026-11-01T09:47:31Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "vijiarts",
+        "full_name":  "pranav256/vijiarts",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/vijiarts",
+        "homepage":  "https://vijiarts.vercel.app",
+        "language":  "Shell",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2026-04-18T07:52:29Z",
+        "pushed_at":  "2026-09-27T16:14:06Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "wallpapers",
+        "full_name":  "pranav256/wallpapers",
+        "description":  null,
+        "html_url":  "https://github.com/pranav256/wallpapers",
+        "homepage":  null,
+        "language":  null,
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-07-10T07:35:56Z",
+        "pushed_at":  "2026-09-27T16:19:09Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "weather",
+        "full_name":  "pranav256/weather",
+        "description":  "Weather App Made Using Vanilla JS API:openweather ",
+        "html_url":  "https://github.com/pranav256/weather",
+        "homepage":  "https://weather06.netlify.app/",
+        "language":  "CSS",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-10-11T13:18:04Z",
+        "pushed_at":  "2026-11-01T09:47:34Z",
+        "topics":  [
+
+                   ]
+    },
+    {
+        "name":  "weather-react",
+        "full_name":  "pranav256/weather-react",
+        "description":  "weather app made using reactjs",
+        "html_url":  "https://github.com/pranav256/weather-react",
+        "homepage":  "https://weather06.vercel.app/",
+        "language":  "JavaScript",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2022-04-23T08:28:25Z",
+        "pushed_at":  "2026-11-01T09:47:37Z",
+        "topics":  [
+                       "react",
+                       "tailwindcss",
+                       "vite",
+                       "weather"
+                   ]
+    },
+    {
+        "name":  "Youtube-Downloader",
+        "full_name":  "pranav256/Youtube-Downloader",
+        "description":  "Youtube-Downloader in both pyqt5 and tkinter with .ui file",
+        "html_url":  "https://github.com/pranav256/Youtube-Downloader",
+        "homepage":  "",
+        "language":  "Python",
+        "fork":  false,
+        "archived":  false,
+        "created_at":  "2021-05-01T06:20:25Z",
+        "pushed_at":  "2026-09-27T16:19:28Z",
+        "topics":  [
+
+                   ]
+    }
+]
