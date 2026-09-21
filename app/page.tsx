@@ -1,14 +1,11 @@
 import { Hero } from "@/components/site/hero";
+import { Projects } from "@/components/site/projects";
 
 export default function HomePage() {
   return (
     <main id="main" tabIndex={-1} className="container">
       <Hero />
-      <section id="work" className="section section-rule">
-        <h2>Selected work</h2>
-        <p>Python automation, a Rust desktop vault, and web experiments.</p>
-        <a className="text-link" href="https://github.com/pranav256">Explore the repositories</a>
-      </section>
+      <Projects />
       <section id="about" className="section section-rule">
         <h2>Learning by building.</h2>
         <p>Small tools, familiar problems, and a growing collection of experiments.</p>
