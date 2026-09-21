@@ -9,7 +9,7 @@ export function Hero() {
       <div className="hero-copy">
         <h1 id="hero-title">I turn curiosity<br /><em>into code.</em></h1>
         <p>I’m Pranav. I build open-source tools for video, the web, and the everyday.</p>
-        <Button asChild nativeButton={false} size="lg" className="primary-action hero-action">
+        <Button asChild nativeButton={false} role="link" size="lg" className="primary-action hero-action">
           <Link href="#work">Explore my work <ArrowDownIcon className="icon" aria-hidden="true" /></Link>
         </Button>
       </div>
