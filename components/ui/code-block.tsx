@@ -42,7 +42,7 @@ function CodeBlock({
               </span>
             )}
             {language && (
-              <span className="text-[0.625rem] font-medium tracking-widest uppercase text-muted-foreground/60 bg-secondary px-2 py-0.5 rounded-md border border-border">
+              <span className="code-language text-sm text-muted-foreground">
                 {language}
               </span>
             )}
@@ -57,7 +57,7 @@ function CodeBlock({
         </div>
       )}
       {/* Code */}
-      <pre className="overflow-x-auto p-4 text-sm leading-relaxed">
+      <pre tabIndex={0} role="region" aria-label={`${language || "Text"} code example`} className="overflow-x-auto p-4 text-sm leading-relaxed">
         <code className="font-mono text-foreground">
           {showLineNumbers
             ? lines.map((line, i) => (

@@ -1,89 +1,52 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { CopyIcon } from "@/components/icons";
+import { Button } from "./button";
+import { cn } from "@/lib/utils";
 
-// Luxe CopyButton: icon button for clipboard — check animation on success
-// Used standalone or inside CodeBlock
-
-export interface CopyButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  value: string
-  onCopied?: () => void
-  timeout?: number
+export interface CopyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  value: string;
+  onCopied?: () => void;
+  timeout?: number;
 }
 
-function CopyButton({
-  value,
-  onCopied,
-  timeout = 2000,
-  className,
-  onClick,
-  ...props
-}: CopyButtonProps) {
-  const [copied, setCopied] = React.useState(false)
+function CopyButton({ value, onCopied, timeout = 2000, className, onClick, ...props }: CopyButtonProps) {
+  const [status, setStatus] = React.useState<"idle" | "copying" | "copied" | "error">("idle");
+  const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  React.useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
 
-  const handleCopy = React.useCallback(async () => {
+  async function handleCopy() {
+    if (timer.current) clearTimeout(timer.current);
+    setStatus("copying");
     try {
-      await navigator.clipboard.writeText(value)
-      setCopied(true)
-      onCopied?.()
-      setTimeout(() => setCopied(false), timeout)
+      await navigator.clipboard.writeText(value);
+      setStatus("copied");
+      onCopied?.();
+      timer.current = setTimeout(() => setStatus("idle"), timeout);
     } catch {
-      // silently fail in non-secure contexts
+      setStatus("error");
     }
-  }, [value, onCopied, timeout])
+  }
 
   return (
-    <button
-      type="button"
-      onClick={(e) => { onClick?.(e); handleCopy(); }}
-      aria-label={copied ? "Copied" : "Copy to clipboard"}
-      className={cn(
-        "inline-flex h-8 w-8 items-center justify-center rounded-lg",
-        "bg-secondary border border-border text-muted-foreground",
-        "transition-all duration-base hover:bg-accent hover:text-foreground",
-        "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
-        "active:scale-[0.96]",
-        className
-      )}
-      {...props}
-    >
-      {copied ? (
-        // Checkmark icon
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="text-foreground"
-        >
-          <polyline points="20 6 9 17 4 12" />
-        </svg>
-      ) : (
-        // Copy icon
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-          <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-        </svg>
-      )}
-    </button>
-  )
+    <div className="code-copy">
+      <Button
+        type="button"
+        variant="ghost"
+        className={cn("code-copy-button", className)}
+        disabled={status === "copying"}
+        onClick={(event) => { onClick?.(event); if (!event.defaultPrevented) void handleCopy(); }}
+        {...props}
+      >
+        <CopyIcon className="icon" aria-hidden="true" />
+        {status === "copied" ? "Copied" : status === "copying" ? "Copying…" : "Copy code"}
+      </Button>
+      <span role="status" className={status === "error" ? "copy-error" : "sr-only"}>
+        {status === "error" ? "Couldn’t copy. Select the code and copy it manually." : status === "copied" ? "Code copied to clipboard." : ""}
+      </span>
+    </div>
+  );
 }
 
-export { CopyButton }
+export { CopyButton };

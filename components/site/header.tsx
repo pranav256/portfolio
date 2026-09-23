@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export function SiteHeader() {
+  const pathname = usePathname();
   return (
     <header className="site-header" id="top">
       <div className="container header-inner">
@@ -12,8 +16,8 @@ export function SiteHeader() {
           <Button asChild nativeButton={false} role="link" variant="ghost" className="nav-link">
             <Link href="/#work">Work</Link>
           </Button>
-          <Button asChild nativeButton={false} role="link" variant="ghost" className="nav-link">
-            <Link href="/#writing">Writing</Link>
+          <Button asChild nativeButton={false} role="link" variant="ghost" className="nav-link" aria-current={pathname.startsWith("/blog") ? "page" : undefined}>
+            <Link href="/blog">Writing</Link>
           </Button>
           <Button asChild nativeButton={false} role="link" variant="ghost" className="nav-link">
             <Link href="/#about">About</Link>
