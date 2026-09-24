@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeftIcon } from "@/components/icons";
+import { ArrowLeftIcon, ArrowDownIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Markdown } from "@/components/blog/markdown";
@@ -55,6 +55,11 @@ export default async function ArticlePage({ params }: Props) {
           </nav>
           <div className="article-body">
             <div className="prose"><Markdown content={post.content} /></div>
+            <div className="article-end">
+              <Button asChild nativeButton={false} role="link" variant="link" className="inline-action">
+                <a href={`/blog/${post.slug}/source`} download={`${post.slug}.md`}><ArrowDownIcon className="icon" aria-hidden="true" /> Download Markdown</a>
+              </Button>
+            </div>
           </div>
         </div>
       </article>

@@ -193,7 +193,7 @@ svg {
 .nav-link { color: var(--muted-foreground); padding-inline: 20px; height: 44px; font-size: 14px; }
 .nav-link[aria-current] { background: var(--accent); color: var(--accent-foreground); }
 .site-footer { border-top: 1px solid var(--border); }
-.footer-inner { padding-block: 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.footer-inner { padding-block: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
 .footer-credit { font-size: 13px; color: var(--muted-foreground); }
 .footer-nav { display: flex; gap: 16px; }
 .footer-link { font-size: 13px; color: var(--muted-foreground); padding-inline: 8px; }

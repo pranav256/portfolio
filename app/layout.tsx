@@ -7,6 +7,7 @@ import "./fonts.css";
 export const metadata: Metadata = {
   title: "Pranav — Developer & maker",
   description: "Open-source tools, web experiments, and notes on building software by Pranav.",
+  alternates: { types: { "application/rss+xml": "/feed.xml" } },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRightIcon, GithubIcon } from "@/components/icons";
+import { ArrowRightIcon, GithubIcon, RssFeedIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
 
@@ -9,6 +9,9 @@ export function SiteFooter() {
       <div className="container footer-inner">
         <p className="footer-credit">© {new Date().getFullYear()} {site.name}</p>
         <nav aria-label="Footer navigation" className="footer-nav">
+          <Button asChild nativeButton={false} role="link" variant="link" className="footer-link">
+            <a href="/feed.xml"><RssFeedIcon className="icon" aria-hidden="true" /> RSS</a>
+          </Button>
           <Button asChild nativeButton={false} role="link" variant="link" className="footer-link">
             <a href={site.github}><GithubIcon className="icon" aria-hidden="true" /> GitHub</a>
           </Button>
