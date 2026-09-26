@@ -1,0 +1,26 @@
+.post-date > .icon,
+.cover-layer,
+.cover-layer-secondary,
+.art-sun,
+.art-note,
+.art-plant {
+  transition: translate var(--transition-duration-base) var(--ease-out), transform var(--transition-duration-base) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .art-sun { translate: var(--art-x, 0px) var(--art-y, 0px); }
+  .art-note { translate: calc(var(--art-x, 0px) * -0.5) calc(var(--art-y, 0px) * -0.5); }
+  .art-plant { translate: calc(var(--art-x, 0px) * 0.25) 0; }
+  .project-link:hover .cover-layer, .project-link:focus-visible .cover-layer { translate: 0 -4px; }
+  .project-link:hover .cover-layer-secondary, .project-link:focus-visible .cover-layer-secondary { translate: 0 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .post-link:hover .post-date > .icon { transform: none; }
+}

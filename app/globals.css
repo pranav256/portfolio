@@ -1,5 +1,6 @@
 @import "../components/globals.css";
 @import "./blog.css";
+@import "./motion.css";
 
 :root {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -61,7 +62,7 @@ svg {
 .arrow-up { transform: rotate(-90deg); }
 .arrow-out { transform: rotate(-45deg); }
 .primary-action { background: var(--foreground); color: var(--background); box-shadow: var(--shadow-sm); }
-.primary-action:hover { background: var(--primary); color: var(--primary-foreground); transform: none; }
+.primary-action:hover { background: var(--primary); color: var(--primary-foreground); transform: none; translate: none; }
 
 .skip-link {
   position: fixed;

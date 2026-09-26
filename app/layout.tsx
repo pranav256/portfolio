@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
+import { ArtworkMotion } from "@/components/site/artwork-motion";
+import { DevelopmentTools } from "@/components/dev/development-tools";
 import "./globals.css";
 import "./fonts.css";
 
@@ -22,6 +24,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         {children}
         <SiteFooter />
+        <ArtworkMotion />
+        <DevelopmentTools />
       </body>
     </html>
   );
