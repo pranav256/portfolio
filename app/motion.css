@@ -8,11 +8,11 @@
 }
 
 @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
-  .art-sun { translate: var(--art-x, 0px) var(--art-y, 0px); }
-  .art-note { translate: calc(var(--art-x, 0px) * -0.5) calc(var(--art-y, 0px) * -0.5); }
-  .art-plant { translate: calc(var(--art-x, 0px) * 0.25) 0; }
-  .project-link:hover .cover-layer, .project-link:focus-visible .cover-layer { translate: 0 -4px; }
-  .project-link:hover .cover-layer-secondary, .project-link:focus-visible .cover-layer-secondary { translate: 0 4px; }
+  .art-sun { translate: var(--art-x, 0rem) var(--art-y, 0rem); }
+  .art-note { translate: calc(var(--art-x, 0rem) * -0.5) calc(var(--art-y, 0rem) * -0.5); }
+  .art-plant { translate: calc(var(--art-x, 0rem) * 0.25) 0; }
+  .project-link:hover .cover-layer, .project-link:focus-visible .cover-layer { translate: 0 -0.25rem; }
+  .project-link:hover .cover-layer-secondary, .project-link:focus-visible .cover-layer-secondary { translate: 0 0.25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowDownIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { WorkbenchArt } from "@/components/site/workbench-art";
@@ -10,7 +9,7 @@ export function Hero() {
         <h1 id="hero-title">I turn curiosity<br /><em>into code.</em></h1>
         <p>I’m Pranav. I build open-source tools for video, the web, and the everyday.</p>
         <Button asChild nativeButton={false} role="link" size="lg" className="primary-action hero-action">
-          <Link href="#work">Explore my work <ArrowDownIcon className="icon" aria-hidden="true" /></Link>
+          <a href="#work">Explore my work <ArrowDownIcon className="icon" aria-hidden="true" /></a>
         </Button>
       </div>
       <div className="hero-art"><WorkbenchArt /></div>

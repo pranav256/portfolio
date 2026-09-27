@@ -5,10 +5,13 @@ import { Button } from "@/components/ui/button";
 import { PostList } from "@/components/blog/post-list";
 import { PostSearch } from "@/components/blog/post-search";
 import { getPosts, summarizePost } from "@/lib/posts";
+import { socialImage } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Writing — Pranav",
+  title: "Writing",
   description: "Notes on small tools, thoughtful interfaces, and the things learned while building.",
+  alternates: { canonical: "/blog" },
+  openGraph: { title: "Writing — Pranav", description: "Notes on small tools, thoughtful interfaces, and learning by building.", url: "/blog", images: [socialImage] },
 };
 
 export default function BlogPage() {

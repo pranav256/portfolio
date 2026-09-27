@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Markdown } from "@/components/blog/markdown";
 import { PostList } from "@/components/blog/post-list";
+import { ArticleOutline } from "@/components/blog/article-outline";
 import { getPost, getPosts, getRelatedPosts } from "@/lib/posts";
-import { formatDate } from "@/lib/site";
+import { formatDate, site, socialImage } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,7 +19,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPost((await params).slug);
   if (!post) notFound();
-  return { title: `${post.title} — Pranav`, description: post.description };
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      type: "article", title: post.title, description: post.description,
+      url: `/blog/${post.slug}`, publishedTime: `${post.date}T00:00:00Z`, authors: [site.name], images: [socialImage],
+    },
+  };
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -43,16 +52,7 @@ export default async function ArticlePage({ params }: Props) {
           </div>
         </header>
         <div className="article-layout">
-          <nav className="article-toc" aria-label="On this page">
-            <p>On this page</p>
-            <ol>
-              {post.headings.map((heading) => (
-                <li key={heading.id} className={heading.depth === 3 ? "toc-nested" : undefined}>
-                  <a href={`#${heading.id}`}>{heading.title}</a>
-                </li>
-              ))}
-            </ol>
-          </nav>
+          <ArticleOutline headings={post.headings} />
           <div className="article-body">
             <div className="prose"><Markdown content={post.content} /></div>
             <div className="article-end">
