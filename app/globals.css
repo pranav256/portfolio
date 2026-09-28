@@ -77,7 +77,7 @@ svg {
   transform: translateY(-160%);
 }
 
-.hero { position: relative; display: grid; grid-template-columns: 1.12fr 1fr; align-items: center; column-gap: 0.75rem; padding-top: 4.375rem; padding-bottom: 2rem; min-height: min(44.375rem, calc(100svh - var(--header-height))); }
+.hero { position: relative; display: grid; grid-template-columns: 1.12fr 1fr; align-items: center; column-gap: 0.75rem; padding-top: 4.5rem; padding-bottom: 2rem; min-height: min(44.375rem, calc(100svh - var(--header-height))); }
 .hero-copy { padding-block: 1.5rem 2.5rem; }
 .hero h1 { font-size: clamp(3.5rem, 6.8vw, 6.5rem); font-weight: 450; line-height: 1.05; letter-spacing: -0.052em; }
 .hero h1 em { color: var(--primary); font-weight: 450; }
@@ -93,22 +93,25 @@ svg {
 .project-featured { grid-column: 1 / -1; }
 .project-card { height: 100%; overflow: hidden; }
 .project-link { display: flex; height: 100%; flex-direction: column; border-radius: inherit; }
+/* Paint focus on the card so the artwork cannot cover or clip the ring. */
+.project-card:has(.project-link:focus-visible) { outline: 0.125rem solid var(--ring); outline-offset: 0.25rem; }
+.project-link:focus-visible { outline: none; }
 .project-featured .project-link { display: grid; grid-template-columns: 1.22fr 1fr; }
 .project-cover { overflow: hidden; position: relative; isolation: isolate; background: var(--accent); }
 .project-art { display: block; width: 100%; height: 100%; object-fit: cover; }
 .project-cover-vault { background: var(--foreground); }
 .project-cover-news { background: var(--background); }
-.project-information { padding: 2rem; }
+.project-information { display: flex; flex-direction: column; gap: 1.5rem; padding: 2rem; }
 .project-featured .project-information { display: flex; justify-content: center; flex-direction: column; padding: 2.5rem; }
 .project-title-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .project-title-row h3 { font-size: 2rem; line-height: 1.15; letter-spacing: -0.03em; }
 .project-featured .project-title-row h3 { font-size: 2.75rem; }
 .project-arrow { width: 1.625rem; height: 1.625rem; color: var(--primary); }
 .project-kind { display: block; margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted-foreground); }
-.project-information > p { font-size: 0.9375rem; line-height: 1.8; max-width: 44ch; margin-top: 1.25rem; }
-.project-technologies { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+.project-information > p { font-size: 0.9375rem; line-height: 1.8; max-width: 44ch; }
+.project-technologies { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .technology-badge { font-family: var(--font-sans); font-size: 0.75rem; text-transform: none; letter-spacing: 0; font-weight: 400; height: 1.625rem; padding-inline: 0.625rem; color: var(--muted-foreground); border-color: var(--border); }
-.project-cta { display: flex; gap: 0.75rem; align-items: center; color: var(--primary); font-size: 0.8125rem; margin-top: 1.75rem; }
+.project-cta { display: flex; gap: 0.75rem; align-items: center; color: var(--primary); font-size: 0.8125rem; }
 .project-cta .icon { width: 1.125rem; height: 1.125rem; }
 .experiments { margin-top: 4rem; }
 .experiments-heading { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.5rem; }
@@ -202,7 +205,7 @@ svg {
 .not-found-page { padding-block: 6rem; }
 .not-found-page h1 { font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; letter-spacing: -0.04em; }
 .not-found-page > p { color: var(--muted-foreground); max-width: 40ch; margin-top: 1.75rem; }
-.not-found-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+.not-found-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: var(--layout-section-gap); }
 
 @media (hover: hover) and (pointer: fine) {
   .nav-link:hover { color: var(--foreground); background: var(--glass-soft); }

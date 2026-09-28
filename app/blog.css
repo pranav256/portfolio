@@ -8,13 +8,12 @@
 .writing-search { max-width: 32.5rem; flex: 1; }
 .search-label { display: block; font-family: var(--font-sans); font-size: 0.8125rem; text-transform: none; letter-spacing: 0; margin-bottom: 0.75rem; }
 .search-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-.search-input-wrap { position: relative; flex: 1; min-width: min(100%, 12rem); }
-.search-input-wrap > .icon { position: absolute; z-index: 1; left: 1rem; top: 0.75rem; color: var(--muted-foreground); pointer-events: none; }
-.search-input { padding-left: 2.75rem; font-size: 1rem; border: 0.0625rem solid var(--border); }
+.search-input-wrap { flex: 1; min-width: min(100%, 12rem); }
+.search-input { font-size: 1rem; border: 0.0625rem solid var(--border); }
 .search-input::placeholder { color: var(--muted-foreground); opacity: 1; }
 .search-submit { padding-inline: 1.5rem; }
 .category-filters { display: flex; gap: 0.25rem; flex-wrap: wrap; }
-.category-filter { padding-inline: 1rem; color: var(--muted-foreground); font-size: 0.8125rem; }
+.category-filter { min-width: 2.75rem; padding-inline: 1rem; color: var(--muted-foreground); font-size: 0.8125rem; }
 .category-filter[aria-pressed="true"] { background: var(--accent); color: var(--accent-foreground); }
 .results-summary { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 4.5rem; padding-block: 0.875rem; font-size: 0.8125rem; color: var(--muted-foreground); }
 .results-summary > p { overflow-wrap: anywhere; }
@@ -39,7 +38,7 @@
 .writing-section .post-list > li:last-child { border-bottom: 0; }
 
 .article-page { padding-top: 2.25rem; container: article / inline-size; }
-.article-back { max-width: 45rem; margin: 0 auto 2.5rem; }
+.article-back { max-width: 45rem; margin: 0 auto var(--layout-section-gap); }
 .article-header { max-width: 45rem; margin: 0 auto 4rem; }
 .article-header h1 { font-size: clamp(2.75rem, 5.5vw, 4.75rem); font-weight: 450; line-height: 1.1; letter-spacing: -0.04em; }
 .article-description { font-size: 1.1875rem; color: var(--muted-foreground); max-width: 56ch; margin-top: 1.5rem; line-height: 1.7; }
@@ -53,10 +52,10 @@
 .article-outline-mobile[open] summary { margin-bottom: 0.75rem; }
 .article-outline-mobile[open] summary .icon { transform: rotate(180deg); }
 .article-toc ol { list-style: none; }
-.article-toc a { display: block; padding-block: 0.625rem; font-size: 0.8125rem; line-height: 1.6; color: var(--muted-foreground); }
+.article-toc a { display: flex; align-items: center; min-height: 2.75rem; padding-block: 0.625rem; font-size: 0.8125rem; line-height: 1.6; color: var(--muted-foreground); }
 .article-toc .toc-nested { padding-left: 1rem; }
 .article-body { min-width: 0; }
-.article-end { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 0.0625rem solid var(--border); }
+.article-end { margin-top: var(--layout-section-gap); padding-top: 1.25rem; border-top: 0.0625rem solid var(--border); }
 .prose { max-width: 68ch; font-size: 1.0625rem; line-height: 1.9; overflow-wrap: break-word; }
 .prose > * + * { margin-top: 1.5rem; }
 .prose > p:first-child { font-size: 1.3125rem; line-height: 1.7; letter-spacing: -0.015em; }
@@ -76,7 +75,7 @@
 .prose :not(pre) > code { font-family: var(--font-mono); font-size: 0.85em; background: var(--accent); padding: 0.1875rem 0.375rem; border-radius: var(--radius-sm); }
 .prose blockquote { background: var(--accent); padding: 1.5rem; border-radius: var(--radius); }
 .article-code { margin-block: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
-.article-code > div:first-child { padding: 0.5rem 1.25rem; gap: 1rem; }
+.article-code > div:first-child { padding: 0.5rem 1.5rem; gap: 1rem; }
 .article-code pre { padding: 1.5rem; font-size: 0.8125rem; line-height: 1.8; }
 .article-code pre:focus-visible { outline-offset: -0.25rem; }
 .code-copy { display: flex; align-items: flex-end; flex-direction: column; max-width: 80%; }
@@ -139,5 +138,5 @@
   .prose > p:first-child { font-size: 1.1875rem; }
   .prose h2 { font-size: 1.8125rem; margin-top: 2.5rem; }
   .article-code pre { font-size: 0.8125rem; padding: 1.25rem; }
-  .article-code > div:first-child { padding-inline: 1rem; }
+  .article-code > div:first-child { padding-inline: 1.25rem; }
 }

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
-import { SearchIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -63,7 +62,6 @@ export function PostSearch({ posts }: { posts: SearchablePost[] }) {
           <Label htmlFor="note-search" className="search-label">Search notes</Label>
           <div className="search-controls">
             <div className="search-input-wrap">
-              <SearchIcon className="icon" aria-hidden="true" />
               <Input id="note-search" key={query} name="q" type="search" defaultValue={query} placeholder="Try JSON or Rust" maxLength={200} autoComplete="off" className="search-input" />
             </div>
             {category && <Input type="hidden" name="category" value={category} className="hidden" />}
@@ -89,7 +87,7 @@ export function PostSearch({ posts }: { posts: SearchablePost[] }) {
         </p>
         {(query || category) && <Button variant="link" className="inline-action reset-filters" onClick={reset}>Clear filters</Button>}
       </div>
-      {results.length ? <PostList posts={results} /> : (
+      {results.length ? <PostList posts={results} compact /> : (
         <Empty
           className="search-empty"
           title="No notes found."

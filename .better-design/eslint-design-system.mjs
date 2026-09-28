@@ -19,7 +19,7 @@ const banned = [
   { selector: "JSXAttribute[name.name='className'] Literal[value=/(^|[ ])uppercase([ ]|$)/][value=/(^|[ ])tracking-[^ ]+([ ]|$)/]", message: "Letter-spaced capitals are a generated-UI tell. Use sentence case at the design system's own label size; keep font-mono for code, IDs, and aligned figures." },
 ];
 
-export default [
+const guardrailRules = [
   {
     files: ["app/**/*.{tsx,jsx}", "components/**/*.{tsx,jsx}"],
     // Exclude the DS itself and co-located tests, which legitimately render raw
@@ -28,3 +28,5 @@ export default [
     rules: { "no-restricted-syntax": ["warn", ...banned] },
   },
 ];
+
+export default guardrailRules;

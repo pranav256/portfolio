@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start --hostname 127.0.0.1",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
+    "verify": "node scripts/verify-site.mjs",
+    "verify:ui": "node scripts/review-site.mjs",
+    "verify:motion": "node scripts/verify-motion.mjs",
     "research": "node scripts/study-references.mjs",
     "research:github": "node scripts/fetch-github.mjs"
   },

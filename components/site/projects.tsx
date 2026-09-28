@@ -21,8 +21,10 @@ export function Projects() {
               <a href={project.repository.html_url} className="project-link" aria-label={`Explore ${project.name} on GitHub`}>
                 <div className={`project-cover project-cover-${project.id}`}><ProjectArt project={project.id} /></div>
                 <CardContent className="project-information">
-                  <div className="project-title-row"><h3>{project.name}</h3><ArrowRightIcon className="project-arrow arrow-out" aria-hidden="true" /></div>
-                  <span className="project-kind">{project.kind}</span>
+                  <div>
+                    <div className="project-title-row"><h3>{project.name}</h3><ArrowRightIcon className="project-arrow arrow-out" aria-hidden="true" /></div>
+                    <span className="project-kind">{project.kind}</span>
+                  </div>
                   <p>{project.description}</p>
                   <div className="project-technologies">
                     {project.technologies.map((technology) => <Badge key={technology} variant="outline" className="technology-badge">{technology}</Badge>)}

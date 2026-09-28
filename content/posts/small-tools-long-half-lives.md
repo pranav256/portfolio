@@ -10,7 +10,7 @@ A small project can hold a surprisingly large question.
 
 A weather app asks what to show while a request is in flight. A notes app asks when a change is safe to forget. A clock asks what time actually means once a browser tab has spent a while in the background.
 
-The public repositories on [my GitHub](https://github.com/pranav256) include these kinds of experiments: Python desktop utilities and games, JavaScript web apps, and later React versions of familiar ideas.
+The public repositories on [my GitHub](https://github.com/pranav256) include these kinds of experiments. There are Python desktop utilities and games, JavaScript web apps, and later React versions of familiar ideas.
 
 ## Give the project a small boundary
 

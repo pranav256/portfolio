@@ -21,13 +21,13 @@ export default function BlogPage() {
       <header className="blog-intro">
         <h1>Notes from<br /><em>the workbench.</em></h1>
         <div className="blog-intro-bottom">
-          <p>On small tools, thoughtful interfaces, and learning by building.</p>
+          <p>Tools, interfaces, and lessons from building.</p>
           <Button asChild nativeButton={false} role="link" variant="link" className="inline-action">
             <a href="/feed.xml"><RssFeedIcon className="icon" aria-hidden="true" /> RSS feed</a>
           </Button>
         </div>
       </header>
-      <Suspense fallback={<PostList posts={posts.map(summarizePost)} />}>
+      <Suspense fallback={<PostList posts={posts.map(summarizePost)} compact />}>
         <PostSearch posts={posts.map((post) => ({ ...summarizePost(post), searchText: post.searchText }))} />
       </Suspense>
     </main>

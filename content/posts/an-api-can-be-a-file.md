@@ -12,7 +12,7 @@ That is the idea behind [news-api](https://github.com/pranav256/news-api): globa
 
 ## Separate the work from the request
 
-A conventional endpoint might fetch a source, transform its response, and send the result back while a person waits. A scheduled pipeline performs the first two steps ahead of time.
+A conventional API might fetch a source, transform its response, and send the result back while a person waits. A scheduled pipeline performs the first two steps ahead of time.
 
 The request becomes much less interesting. That can be a useful property.
 
@@ -30,9 +30,9 @@ This is a pattern, not a claim that every dataset should be static. It works whe
 
 ## Freshness is part of the interface
 
-Two hours is a tradeoff. A news reader should communicate when its data was last updated instead of presenting a successful HTTP response as proof that the news is current.
+Two hours is a tradeoff. A news reader should show when its data was last updated. A successful request does not prove that the news is current.
 
-A small metadata field can make that distinction explicit:
+An update-time field can make that distinction explicit:
 
 ```json
 {
