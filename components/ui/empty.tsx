@@ -1,10 +1,6 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-// Luxe Empty: ultra-dark monochromatic, premium dashed border
-// Icon in a precise square with inset shadow, tracking-wide text
-// Minimal — no colored glows, pure monochromatic
-
 interface EmptyProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: React.ReactNode
   title: string

@@ -213,9 +213,9 @@ try {
   await check('No uncaught browser errors during the tested flows', async () => assert.deepEqual(browserErrors, []));
 } finally {
   await browser.close();
-  await mkdir('docs/verification', { recursive: true });
+  await mkdir('test-results', { recursive: true });
   const buildId = await readFile('.next/BUILD_ID', 'utf8').catch(() => 'development');
-  await writeFile('docs/verification/behavior.json', JSON.stringify({ checkedAt: new Date().toISOString(), buildId: buildId.trim(), base, results }, null, 2) + '\n');
+  await writeFile('test-results/behavior.json', JSON.stringify({ checkedAt: new Date().toISOString(), buildId: buildId.trim(), base, results }, null, 2) + '\n');
 }
 
 if (results.some(result => !result.passed)) process.exitCode = 1;

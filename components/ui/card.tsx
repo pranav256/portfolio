@@ -2,10 +2,6 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-// Editorial Warm Card — warm cream tile at ~92% opacity. Soft solid surface,
-// faint top inset highlight (1.5px white at ~55% alpha), barely-there outer
-// shadow. Big 24px radius.
-
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>

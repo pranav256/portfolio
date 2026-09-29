@@ -4,9 +4,6 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { CopyButton } from "./copy-button"
 
-// Luxe CodeBlock: dark code display — monospace, subtle border, header with language label
-// Card bg distinguishes from page bg; copy button top-right corner
-
 export interface CodeBlockProps extends React.HTMLAttributes<HTMLDivElement> {
   code: string
   language?: string

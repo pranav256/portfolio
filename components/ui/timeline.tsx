@@ -1,9 +1,6 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-// Luxe Timeline: vertical event list — white dot, dim gray connector line
-// Clean editorial feel — no color accents, just luminance contrast
-
 export interface TimelineItem {
   title: string
   description?: string

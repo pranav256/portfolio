@@ -1,2 +1,0 @@
-@.better-design/rules.md
-

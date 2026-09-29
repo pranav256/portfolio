@@ -186,9 +186,9 @@ try {
   await check('The motion and hover checks produced no browser errors', async () => assert.deepEqual(errors, []));
 } finally {
   await browser.close();
-  await mkdir('docs/verification', { recursive: true });
+  await mkdir('test-results', { recursive: true });
   const buildId = await readFile('.next/BUILD_ID', 'utf8').catch(() => 'development');
-  await writeFile('docs/verification/motion.json', JSON.stringify({ checkedAt: new Date().toISOString(), buildId: buildId.trim(), base, results, frames }, null, 2) + '\n');
+  await writeFile('test-results/motion.json', JSON.stringify({ checkedAt: new Date().toISOString(), buildId: buildId.trim(), base, results, frames }, null, 2) + '\n');
 }
 
 if (results.some(result => !result.passed)) process.exitCode = 1;

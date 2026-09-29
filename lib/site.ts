@@ -1,4 +1,4 @@
-import profile from "@/research/github-profile.json";
+import profile from "@/data/profile.json";
 
 const configuredUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://127.0.0.1:3000");
 if (!["http:", "https:"].includes(configuredUrl.protocol)) {

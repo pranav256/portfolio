@@ -1,4 +1,3 @@
-/** Original editorial illustration. It depicts a workshop, not a product screenshot. */
 export function WorkbenchArt() {
   return (
     <svg viewBox="0 0 560 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="workbench-art" aria-hidden="true">

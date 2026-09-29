@@ -3,17 +3,6 @@ import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-// Editorial Warm Button — translucent white pill on warm cream.
-//  - --glass-* tokens for fill (all tiers stay translucent so blur shows)
-//  - --glass-blur token applied via backdrop-filter so the canvas halos
-//    behind every pill get blurred — that's the actual frosted look
-//  - 1.5px white top inset highlight, dim bottom inset
-//  - tiny outer halo
-//  - 99px pill radius
-// Primary differs from secondary via alpha + inner-highlight intensity, NOT
-// by being opaque (opaque would kill the blur). Terracotta only as link
-// text + focus ring.
-
 const buttonVariants = cva(
   [
     "relative inline-flex items-center justify-center gap-2 whitespace-nowrap",
@@ -99,11 +88,7 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    // Callers written against the Radix API pass the element to become as a
-    // child: <Button asChild><Link>…</Link></Button>. Base UI has no asChild,
-    // it composes through `render`. Without this the prop reaches the DOM and
-    // the anchor nests inside the button instead of replacing it, which stacks
-    // the icon above the label and puts a link inside a button.
+    // Render the child as the control instead of nesting a link inside a button.
     if (asChild && React.isValidElement(props.children)) {
       const { children, ...rest } = props
       return (
@@ -111,10 +96,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           ref={ref}
           className={cn(buttonVariants({ variant, size, className }))}
           {...rest}
-          // After the spread, so an explicit asChild child wins over a stray
-          // render prop rather than being silently replaced by it.
-          // SAFETY: this branch runs only when `asChild` is set, and the caller then
-          // owns passing a single element for the slot to clone.
           render={children as React.ReactElement}
         />
       )

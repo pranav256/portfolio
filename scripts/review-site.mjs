@@ -4,9 +4,13 @@ import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 
 const base = process.env.SITE_URL || 'http://127.0.0.1:3000';
-const capture = await readFile('.better-design/capture-spacing.txt', 'utf8');
+const theme = process.env.REVIEW_THEME || 'dark';
+assert.ok(['dark', 'light'].includes(theme), 'REVIEW_THEME must be dark or light');
+const screenshots = `test-results/screenshots/${theme}`;
 const scenarios = [
   { name: 'home', route: '/' },
+  { name: 'theme-toggle-hover', route: '/', themeHover: true },
+  { name: 'theme-toggle-focus', route: '/', themeFocus: true },
   { name: 'home-project-hover', route: '/', projectHover: true },
   { name: 'home-project-focus', route: '/', projectFocus: true },
   { name: 'blog', route: '/blog' },
@@ -25,11 +29,10 @@ const requested = process.argv.slice(2);
 const selected = requested.length ? scenarios.filter(scenario => requested.includes(scenario.name)) : scenarios;
 const browser = await chromium.launch({ headless: true, ...(process.env.BROWSER_EXECUTABLE ? { executablePath: process.env.BROWSER_EXECUTABLE } : {}) });
 const results = [];
-await mkdir('.better-design/evidence', { recursive: true });
-await mkdir('docs/screenshots', { recursive: true });
-await mkdir('docs/verification', { recursive: true });
+await mkdir(screenshots, { recursive: true });
 
 async function openScenario(page, scenario) {
+  await page.addInitScript(theme => localStorage.setItem('pranav-theme', theme), theme);
   const response = await page.goto(new URL(scenario.route, base).href, { waitUntil: 'domcontentloaded' });
   await page.locator('h1').waitFor();
   if (scenario.route.split('?')[0] === '/blog') await page.getByRole('searchbox', { name: 'Search notes' }).waitFor();
@@ -58,6 +61,12 @@ async function openScenario(page, scenario) {
     await page.waitForFunction(() => document.getAnimations().every(animation => animation.playState !== 'running'));
   }
   if (scenario.searchFocus) await page.getByRole('searchbox').focus();
+  if (scenario.themeHover) await page.locator('.theme-toggle').hover();
+  if (scenario.themeFocus) {
+    await page.keyboard.press('Tab');
+    await page.locator('.theme-toggle').focus();
+  }
+  await page.waitForFunction(() => document.getAnimations().every(animation => animation.playState !== 'running'));
   return response.status();
 }
 
@@ -71,8 +80,7 @@ try {
       try {
         const status = await openScenario(page, scenario);
         assert.equal(status, scenario.status || 200);
-        const snapshot = await page.evaluate(capture);
-        snapshot.name = `${scenario.name}-${width}`;
+        const name = `${scenario.name}-${width}`;
         const evidence = await page.evaluate(() => {
           const visible = element => element.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true });
           const normalize = text => text.replace(/\s+/g, ' ').trim();
@@ -104,7 +112,6 @@ try {
             bodyFont: getComputedStyle(document.body).fontFamily,
             headingFont: getComputedStyle(document.querySelector('h1')).fontFamily,
             fonts: [...document.fonts].map(font => ({ family: font.family, status: font.status, style: font.style })),
-            developmentTools: !!document.querySelector('.dialkit-root, [data-agentation-root], [data-react-grab]'),
             controls: [...document.querySelectorAll('a,button,input,summary')].filter(visible).filter(el => !el.closest('.prose') && !el.matches('.skip-link')).map(el => {
               const rect = el.getBoundingClientRect();
               return { text: el.getAttribute('aria-label') || normalize(el.textContent), tag: el.tagName, width: rect.width, height: rect.height, x: rect.x, y: rect.y };
@@ -114,10 +121,9 @@ try {
         const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'best-practice']).analyze();
         const violations = axe.violations.map(({ id, impact, description, helpUrl, nodes }) => ({ id, impact, description, helpUrl, nodes: nodes.map(({ target, failureSummary }) => ({ target, failureSummary })) }));
         const suffix = width === 390 ? 'mobile' : width === 1440 ? 'desktop' : 'wide';
-        await page.screenshot({ path: `docs/screenshots/${scenario.name}-${suffix}.png`, fullPage: true, animations: 'disabled' });
-        await page.screenshot({ path: `docs/screenshots/${scenario.name}-${suffix}-fold.png`, animations: 'disabled' });
-        await writeFile(`.better-design/evidence/dom-${scenario.name}-${width}.json`, JSON.stringify(snapshot) + '\n');
-        const state = { name: snapshot.name, route: scenario.route, width, status, errors, violations, ...evidence };
+        await page.screenshot({ path: `${screenshots}/${scenario.name}-${suffix}.png`, fullPage: true, animations: 'disabled' });
+        await page.screenshot({ path: `${screenshots}/${scenario.name}-${suffix}-fold.png`, animations: 'disabled' });
+        const state = { name, route: scenario.route, width, status, errors, violations, ...evidence };
         results.push(state);
         console.log(`${state.name}: HTTP ${status}, overflow=${state.overflow}, axe=${violations.length}, errors=${errors.length}`);
       } catch (error) {
@@ -146,7 +152,7 @@ try {
           }));
           results.push({ name: `text-resize-${route}-${width}`, width, route, normalOverflow, enlarged });
           console.log(`Text resize ${route} ${width}: normalOverflow=${normalOverflow}, enlargedOverflow=${enlarged.overflow}`);
-          if (enlarged.overflow) await page.screenshot({ path: `docs/verification/text-resize-${route.replace(/\W+/g, '-')}-${width}.png`, fullPage: true });
+          if (enlarged.overflow) await page.screenshot({ path: `test-results/text-resize-${route.replace(/\W+/g, '-')}-${width}.png`, fullPage: true });
         } finally { await context.close(); }
       }
     }
@@ -154,7 +160,7 @@ try {
 } finally {
   await browser.close();
   const buildId = await readFile('.next/BUILD_ID', 'utf8').catch(() => 'development');
-  await writeFile(`docs/verification/${requested.length ? `review-${requested.join('-')}` : 'review'}.json`, JSON.stringify({ checkedAt: new Date().toISOString(), buildId: buildId.trim(), base, results }, null, 2) + '\n');
+  await writeFile(`test-results/review-${theme}${requested.length ? `-${requested.join('-')}` : ''}.json`, JSON.stringify({ checkedAt: new Date().toISOString(), buildId: buildId.trim(), base, theme, results }, null, 2) + '\n');
 }
 
-assert.ok(results.every(result => !result.error && !result.overflow && !result.normalOverflow && !result.enlarged?.overflow && !result.errors?.length && !result.violations?.length), 'The review found issues; inspect docs/verification/review*.json.');
+assert.ok(results.every(result => !result.error && !result.overflow && !result.normalOverflow && !result.enlarged?.overflow && !result.errors?.length && !result.violations?.length), 'The review found issues; inspect test-results/review*.json.');

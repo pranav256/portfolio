@@ -1,8 +1,8 @@
-import repositories from "@/research/github-repositories.json";
+import repositories from "@/data/repositories.json";
 
 function repository(name: string) {
   const item = repositories.find((repo) => repo.name === name && !repo.fork);
-  if (!item) throw new Error(`Original repository missing from the verified snapshot: ${name}`);
+  if (!item) throw new Error(`Repository not found: ${name}`);
   return item;
 }
 

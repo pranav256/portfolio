@@ -8,7 +8,5 @@ playwright-report/
 *.tsbuildinfo
 *.log
 .env*
-!.env.example
 .DS_Store
 Thumbs.db
-
