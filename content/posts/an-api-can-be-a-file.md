@@ -1,60 +1,143 @@
 ---
-title: "An API can be a file."
-description: "A small argument for scheduled jobs, ordinary JSON, and fewer moving parts."
-date: "2026-11-05"
+title: "Building news-api: fresh news from static JSON"
+description: "How a scheduled Python scraper evolved around API quotas, empty country feeds, compatibility, downtime, and honest refresh timestamps."
+date: "2026-11-06"
 category: "Building"
 featured: true
 ---
 
-An API does not always need a server waiting for a request. Sometimes it needs a file that is fresh enough to be useful.
+news-api started with a small arrangement: fetch headlines on a schedule, write them into JSON files, and commit the result to GitHub. Anyone consuming the published files could read the data without supplying an API key.
 
-That is the idea behind [news-api](https://github.com/pranav256/news-api): global news as JSON, refreshed every two hours with GitHub Actions. A reader fetches the published data. The work of collecting it happens separately.
+Keeping that arrangement useful over time meant dealing with upstream limits, unsuccessful refreshes, and clients that already depended on the original URLs. The history stretches from February 2022 to the current Python scraper, with an actual downtime report along the way.
 
-## Separate the work from the request
+## The first version published twenty-one files
 
-A conventional API might fetch a source, transform its response, and send the result back while a person waits. A scheduled pipeline performs the first two steps ahead of time.
+The [initial source commit](https://github.com/pranav256/news-api/commit/2e19411e0124d8d16f3cf5300990e4b815edea68), on 26 February 2022, looped over three countries and seven categories. It called NewsAPI and wrote each response to a country/category path.
 
-The request becomes much less interesting. That can be a useful property.
+India used `in`, the United States `us`, and the United Kingdom `gb`. Categories included general, business, health, science, sports, technology, and entertainment.
 
-```text
-Scheduled job
-  → collect source data
-  → normalize and validate
-  → publish JSON
+The first GitHub Actions workflow was added the same day. The publishing model kept collection separate from reading:
 
-Reader
-  → request the published file
-```
+~~~text
+GitHub Actions
+  -> run the Python scraper
+  -> write country/category JSON
+  -> commit changed files
 
-This is a pattern, not a claim that every dataset should be static. It works when many readers can share the same result and the data does not need to change with every request.
+Consumer
+  -> request the published JSON file
+~~~
 
-## Freshness is part of the interface
+The current public paths preserve that structure. One example is:
 
-Two hours is a tradeoff. A news reader should show when its data was last updated. A successful request does not prove that the news is current.
+~~~text
+https://raw.githubusercontent.com/pranav256/news-api/main/us/general.json
+~~~
 
-An update-time field can make that distinction explicit:
+No application server in this repository has to handle that request. GitHub serves the file, and the scheduled job does the collection beforehand.
 
-```json
-{
-  "updatedAt": "2026-11-05T08:00:00Z",
-  "articles": []
-}
-```
+The tradeoff is freshness. A consumer receives the last published result, which may be older than the latest attempted run.
 
-This example illustrates a possible response contract. Consumers should use the actual fields documented by the source they choose.
+## Downtime became a public issue
 
-## Keep the last useful result
+On 27 February 2023, someone opened [issue #1, “api stopped working”](https://github.com/pranav256/news-api/issues/1). The report asked for a fix but did not include diagnostics.
 
-An upstream service can be unavailable. A scheduled job can be delayed. A feed can arrive with an unexpected shape.
+My February 2024 reply said that the API was operational again after temporary downtime. The issue is closed.
 
-A resilient publishing pipeline validates a candidate before replacing the last successful output. Its failure mode should preserve usable data and make its age visible. An empty response that looks successful is often harder for a reader to understand than an explicit stale-data message.
+That establishes a real availability problem and a later report of recovery. It does not establish the root cause, exact outage duration, or the commit that repaired it. The later quota and feed changes should not be presented as a proven explanation of that earlier incident.
 
-The same idea applies to release indexes, documentation search, public datasets, and small dashboards. If the expensive work can happen before a request, it is worth considering.
+It does show why a scheduled data project needs something more informative than a successful download. A client can fetch an old file successfully even while collection has stopped.
 
-## Less infrastructure, more clarity
+## Expanding collection exposed a budget problem
 
-There are still things to maintain: source permissions, scheduling, validation, hosting limits, and attribution. A static file does not remove those responsibilities. It gives each one a clear place to live.
+The original script mapped one environment-variable API key to each category. A [July 2026 rewrite](https://github.com/pranav256/news-api/commit/bc800a75ae4768f276aeab43cd8d081490843881) moved toward key rotation, retries, paginated headlines, and deeper category searches.
 
-That is the appeal of this approach. The architecture is small enough to explain, inspect, and improve without having to understand a service fleet first.
+That version printed a projected daily request count. Its budget was mainly a calculation shown in the logs; the current code places a limit on requests before they happen.
 
-[Explore the news-api repository ↗](https://github.com/pranav256/news-api)
+The [October rewrite](https://github.com/pranav256/news-api/commit/23fc4433e34ed4257e678c5162289070ce45ee0d) introduced a request-budget object. Each attempted NewsAPI call consumes budget, including retries. Exhausted or invalid keys can be disabled for the remainder of the run.
+
+The code uses a budget assumption of 100 requests per day per key, twelve scheduled runs per day, and a 20 percent reserve:
+
+~~~text
+run budget = floor(keys × 100 × 0.80 / 12)
+~~~
+
+With one configured key, that permits six NewsAPI attempts in a run. RSS requests use a separate path and do not consume that counter.
+
+This is an application-side cap, not a ledger of every request ever made with a key. Manual runs and other applications using the same credentials still need consideration. The key point is that collection now has an enforceable bound instead of only a forecast.
+
+## Empty successful responses defeated the old fallback
+
+The July version tried country-based headline queries and switched to source-based queries when the request failed.
+
+An empty response with `status: "ok"` could pass through that logic. There was no exception to trigger the fallback, even though the feed had no useful stories. The current source specifically identifies empty successful results for India and the UK as a reason to collect RSS.
+
+The October approach uses RSS feeds for every country/category pair and NewsAPI for US headline requests and deeper searches when budget permits. Publisher feeds include sources such as NDTV and The Hindu for India, and BBC feeds for the UK.
+
+RSS, or Really Simple Syndication, is a publisher's structured feed of articles. The parser handles RSS and Atom formats, turns their entries into NewsAPI-shaped article objects, cleans text, and normalizes dates where possible.
+
+Articles from the providers are merged and deduplicated by URL. Missing links are excluded, and results are bounded. Deep-search files can use the cached RSS category result when NewsAPI supplies no useful articles.
+
+The architecture can continue producing data without a configured NewsAPI key:
+
+~~~bash
+python main.py --rss-only
+~~~
+
+That is also a useful local mode. The public reader needs no key, and RSS-only collection gives the producer a route that does not need one either.
+
+## Compatibility meant keeping two kinds of output
+
+The July code wrote enriched files under `data/`, while existing consumers used the original country/category paths. The October rewrite restored and preserved that original response contract alongside richer output.
+
+The root files contain `status`, `totalResults`, and `articles`. Additional metadata lives in:
+
+~~~text
+data/{country}/{category}_headlines.json
+data/{country}/{category}_everything.json
+data/status.json
+~~~
+
+Headline files include the collection timestamp and providers. The deeper files include category searches or their RSS fallback. The status file records the run's outcomes.
+
+This separation let the collection pipeline grow without requiring every existing consumer to adopt a new response shape at the same time. The old environment-variable key names are supported too, alongside `NEWSAPI_KEYS`, and duplicate or empty keys are filtered out.
+
+## A failed refresh must not look like fresh data
+
+The most focused reliability change was [6 October's feed-freshness commit](https://github.com/pranav256/news-api/commit/840f29cf45dd8af24ba3a9b9007b7b697a3ee4b3).
+
+The earlier October implementation already avoided replacing headline files when every provider failed. The follow-up added per-feed outcomes and preserved the last successful timestamp in the status report.
+
+It separates three situations:
+
+- At least one provider succeeds with articles: publish the new feed and its refresh time.
+- A provider succeeds with an empty feed: publish an empty result with the real refresh time.
+- Every provider fails: retain the previous files and their previous successful refresh time.
+
+A timestamp saying when a status file was generated cannot stand in for when a feed last refreshed successfully. The report therefore distinguishes `generated_at`, `run_started_at`, `attempted_at`, and `last_successful_refresh`.
+
+The per-feed status is `updated` or `retained`. Where old metadata is unavailable, the successful refresh time remains unavailable too.
+
+This makes a partial failure visible without discarding the last useful data. It also lets a reader show that a feed was retained after a failed attempt.
+
+## Defensive parsing and file writes needed verification
+
+The freshness commit hardened provider parsing as well. An `articles` collection might be a list containing invalid items, or might have the wrong type altogether. The code checks the collection and each item before using them.
+
+The [fixture tests](https://github.com/pranav256/news-api/blob/840f29cf45dd8af24ba3a9b9007b7b697a3ee4b3/tests/test_main.py) cover those malformed collections, RSS and Atom parsing, deduplication, key loading, and request budgets.
+
+Two persistence tests are especially relevant. One compares the old feed before and after a failed refresh and checks that its successful timestamp is retained. Another verifies that a successful empty feed is actually published.
+
+JSON files are written through a temporary file in the destination directory and then replaced. That reduces the risk of a partially written file. The root file, rich feed, and status file are still separate writes; the implementation does not make the entire set one filesystem transaction.
+
+## The schedule is a target, not a freshness guarantee
+
+The [current workflow](https://github.com/pranav256/news-api/blob/23fc4433e34ed4257e678c5162289070ce45ee0d/.github/workflows/main.yml) requests a run every two hours and applies a fifteen-minute job timeout. It uses a concurrency group and commits only when generated files change.
+
+The history includes gaps longer than two hours between data commits. Changed-file commits are evidence of publication, not a complete record of attempted or successful collection. Consumers should inspect feed timestamps rather than infer age from the cron expression.
+
+The current status file can also report `partial` while the script exits successfully. That permits usable partial results to be published, but a green workflow alone does not prove that every provider or country refreshed.
+
+The next improvements should make retained-feed age easy for consumers to interpret, monitor repeated provider failures, and check behavior when publishing is interrupted between files. The twenty-one public paths can stay simple while the pipeline becomes more explicit about the data behind them.
+
+[Read news-api's source](https://github.com/pranav256/news-api/tree/840f29cf45dd8af24ba3a9b9007b7b697a3ee4b3) and [commit history](https://github.com/pranav256/news-api/commits/main/). This article uses the public code, issue discussion, and recorded commits reviewed on 6 November 2026.
