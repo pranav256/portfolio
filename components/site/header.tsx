@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/site/theme-toggle";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -23,6 +24,7 @@ export function SiteHeader() {
             <Link href="/#about">About</Link>
           </Button>
         </nav>
+        <ThemeToggle />
       </div>
     </header>
   );

@@ -1,4 +1,4 @@
-@import "../components/globals.css";
+@import "./theme.css";
 @import "./blog.css";
 @import "./motion.css";
 
@@ -10,7 +10,45 @@
   --page-gutter: var(--layout-inset);
   --section-space: calc(var(--layout-section-gap) * 2);
   --header-height: 6.25rem;
+  --illustration-ink: oklch(0.27 0.012 55);
+  --illustration-paper: oklch(0.96 0.014 80);
 }
+
+/* Dark palette. */
+html.dark {
+  color-scheme: dark;
+  --background: oklch(0.20 0.012 55);
+  --foreground: oklch(0.93 0.014 80);
+  --card: oklch(0.25 0.012 55 / 0.96);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.27 0.012 55 / 0.98);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.76 0.105 38);
+  --primary-foreground: oklch(0.20 0.012 55);
+  --secondary: oklch(0.30 0.012 55);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.27 0.012 55);
+  --muted-foreground: oklch(0.74 0.016 70);
+  --accent: oklch(0.29 0.035 38);
+  --accent-foreground: oklch(0.82 0.085 38);
+  --destructive: oklch(0.74 0.16 27);
+  --destructive-foreground: var(--background);
+  --border: oklch(0.93 0.014 80 / 0.16);
+  --input: oklch(0.93 0.014 80 / 0.08);
+  --ring: var(--primary);
+  --glass-strong: oklch(0.93 0.014 80 / 0.12);
+  --glass: oklch(0.93 0.014 80 / 0.07);
+  --glass-soft: oklch(0.93 0.014 80 / 0.04);
+  --glass-hover-strong: oklch(0.93 0.014 80 / 0.17);
+  --glass-hover: oklch(0.93 0.014 80 / 0.11);
+  --glass-hover-soft: oklch(0.93 0.014 80 / 0.07);
+  --shadow-glass-inner: inset 0 0.0625rem 0 oklch(1 0 0 / 0.08), inset 0 0 0 0.0625rem oklch(1 0 0 / 0.04);
+  --shadow-glass-outer: 0 0.125rem 0.375rem oklch(0 0 0 / 0.18);
+  --shadow-glass: var(--shadow-glass-inner), var(--shadow-glass-outer);
+  --shadow-glass-hover: inset 0 0.0625rem 0 oklch(1 0 0 / 0.10), 0 0.25rem 0.625rem oklch(0 0 0 / 0.20);
+}
+
+.theme-switching *, .theme-switching *::before, .theme-switching *::after { transition: none !important; }
 
 html {
   color-scheme: light;
@@ -99,7 +137,7 @@ svg {
 .project-featured .project-link { display: grid; grid-template-columns: 1.22fr 1fr; }
 .project-cover { overflow: hidden; position: relative; isolation: isolate; background: var(--accent); }
 .project-art { display: block; width: 100%; height: 100%; object-fit: cover; }
-.project-cover-vault { background: var(--foreground); }
+.project-cover-vault { background: var(--illustration-ink); --background: var(--illustration-paper); --foreground: var(--illustration-ink); }
 .project-cover-news { background: var(--background); }
 .project-information { display: flex; flex-direction: column; gap: 1.5rem; padding: 2rem; }
 .project-featured .project-information { display: flex; justify-content: center; flex-direction: column; padding: 2.5rem; }
@@ -191,10 +229,13 @@ svg {
 #main:focus { outline: none; }
 
 .site-header { position: relative; z-index: 20; }
-.header-inner { height: var(--header-height); display: flex; align-items: center; justify-content: space-between; border-bottom: 0.0625rem solid var(--border); }
+.header-inner { height: var(--header-height); display: flex; align-items: center; gap: 1rem; border-bottom: 0.0625rem solid var(--border); }
 .wordmark { display: inline-flex; align-items: center; min-height: 2.75rem; font-family: var(--font-serif); font-weight: 500; font-size: 1.875rem; letter-spacing: -0.09375rem; line-height: 1; }
 .wordmark span { color: var(--primary); }
-.main-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; max-width: 100%; }
+.main-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; max-width: 100%; margin-left: auto; }
+.theme-toggle { width: 2.75rem; height: 2.75rem; flex-shrink: 0; color: var(--foreground); }
+.theme-to-light, .dark .theme-to-dark { display: none; }
+.theme-to-dark, .dark .theme-to-light { display: flex; }
 .nav-link { color: var(--muted-foreground); padding-inline: 1.25rem; height: 2.75rem; font-size: 0.875rem; }
 .nav-link[aria-current] { background: var(--accent); color: var(--accent-foreground); }
 .site-footer { border-top: 0.0625rem solid var(--border); }
@@ -220,6 +261,8 @@ svg {
   }
   .wordmark { font-size: 1.6875rem; }
   .header-inner { height: auto; min-height: var(--header-height); padding-block: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+  .wordmark { margin-right: auto; }
+  .main-nav { order: 3; width: 100%; justify-content: space-between; margin-left: 0; }
   .nav-link { padding-inline: 0.75rem; font-size: 0.8125rem; }
   .footer-nav { gap: 0; flex-wrap: wrap; }
   .contact-section .primary-action { white-space: normal; height: auto; min-height: 3rem; padding-block: 0.75rem; }
